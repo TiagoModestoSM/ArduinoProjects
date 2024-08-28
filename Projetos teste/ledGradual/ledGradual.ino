@@ -14,14 +14,14 @@ pinMode (LED2,OUTPUT);
 
 void loop() {
   // put your main code here, to run repeatedly:
-for (int i = 0; i<256; i++)
+for (int i = 0; i<150; i++)
   {
     analogWrite(LED,i);
     analogWrite(LED1,i);
     analogWrite(LED2,i);
     delay (10);
   }
-  for (int i = 256; i>=0; i--)
+  for (int i = 150; i>=0; i--)
   {
     analogWrite(LED,i);
     analogWrite(LED1,i);

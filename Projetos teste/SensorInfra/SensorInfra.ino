@@ -1,21 +1,26 @@
-#define Led 11
-#define Infra 8
+#define Led 6
+#define Infrarec 8
+#define Infraem 9
 
-
+void serial();
 void setup() {
   Serial.begin(9600);
   pinMode(Led, OUTPUT);
-  pinMode(Infra, INPUT);
+  pinMode(Infrarec, INPUT);
+  pinMode(Infraem, OUTPUT);
+  digitalWrite(Infraem,HIGH);
 }
 
 void loop() {
-if (digitalRead(Infra) == HIGH){
-digitalWrite (Led,HIGH);
-    
-  delay (200);
+   Serial.println(digitalRead(Infrarec));
+  
+if (digitalRead(Infrarec) == 0)
+{
+digitalWrite (Led,HIGH);   
 }
-else {
+
+else 
+{
 digitalWrite (Led,LOW);
-  delay(200);
 }
-}
+}//end loop 

@@ -3,6 +3,7 @@
 #include "Ultrasonic.h"
 #define trig 4
 #define echo 5
+#define buzzer 6
 Ultrasonic ultrasonic(trig,echo ); // Trigger na porta 3 e Echo na porta 2
 
 //Declarando os LED como constantes em seus respectivos pinos
@@ -18,6 +19,7 @@ void setup() {
   pinMode(ledVerde, OUTPUT); //declarando os LEDs como saida
   pinMode(ledAmarelo, OUTPUT);
   pinMode(ledVermelho, OUTPUT);
+  pinMode(buzzer, OUTPUT);
 }
 
 void loop() {
@@ -52,11 +54,13 @@ void ledDistancia() {
   if (distanciaCM < 30) { // se a distancia for menor que 10 cm
     digitalWrite(ledVermelho, HIGH); }// liga LED vermelho
   if (distanciaCM <20) {
+    
     for (int i = 0; i<256; i++)
   {
     analogWrite(ledVermelho,i);
     analogWrite(ledAmarelo,i);
     analogWrite(ledVerde,i);
+    analogWrite(buzzer, i);
     delay(1);
   }
   for (int i = 256; i>=0; i--)
@@ -64,6 +68,7 @@ void ledDistancia() {
     analogWrite(ledVermelho,i);
     analogWrite(ledAmarelo,i);
     analogWrite(ledVerde,i);
+    analogWrite(buzzer,i);
     delay (1);
   
 }

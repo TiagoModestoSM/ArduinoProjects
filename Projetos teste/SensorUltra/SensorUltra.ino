@@ -1,7 +1,7 @@
 #include <HCSR04.h>
 
-#define trig 4
-#define echo 5
+#define trig 12
+#define echo 11
 #define led 9
 UltraSonicDistanceSensor distanceSensor(trig, echo );  // Initialize sensor that uses digital pins 13 and 12.
 
